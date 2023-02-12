@@ -7,13 +7,13 @@ const Navbar: React.FC = () => {
     <nav>
       <ul className="nav-links">
         <li>
-          <Link to="/register">Register</Link>
+          <Link to="/show">Registered Fingers</Link>
         </li>
         <li>
-          <Link to="/check">Check</Link>
+          <Link to="/register">Register A Finger</Link>
         </li>
         <li>
-          <Link to="/show">Show</Link>
+          <Link to="/check">Current Supervise Status</Link>
         </li>
       </ul>
     </nav>
