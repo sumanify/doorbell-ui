@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   return (
-    <nav>
-      <ul className="nav-links">
+    <nav className="doorbell__navbar">
+      <h2>The DoorBell</h2>
+      <ul>
         <li>
           <Link to="/show">Registered Fingers</Link>
         </li>
@@ -13,7 +14,7 @@ const Navbar: React.FC = () => {
           <Link to="/register">Register A Finger</Link>
         </li>
         <li>
-          <Link to="/check">Current Supervise Status</Link>
+          <Link to="/check">Manage Supervision</Link>
         </li>
       </ul>
     </nav>
