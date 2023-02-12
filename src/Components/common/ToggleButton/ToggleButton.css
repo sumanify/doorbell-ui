@@ -1,0 +1,19 @@
+.toggle-button {
+  background-color: var(--color-red);
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 40px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid var(--color-bg);
+  width: 300px;
+}
+
+.toggle-button:hover {
+  border: 2px solid var(--color-home);
+}
+
+.toggle-button.toggled {
+  background-color: var(--color-green);
+}

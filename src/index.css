@@ -5,6 +5,8 @@
   --color-txt: #333;
   --color-home: goldenrod;
   --color-border: #2980b9;
+  --color-green: #03c988;
+  --color-red: #ff1e1e;
 }
 
 * {
@@ -15,6 +17,7 @@
 
 body {
   width: 100%;
+  height: 100vh;
   font-family: var(--font);
   color: var(--color-txt);
   background: var(--color-bg);

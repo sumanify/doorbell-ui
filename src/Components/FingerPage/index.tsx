@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FINGERS_LIST_API } from "../../utils/apis";
+import { REGISTERED_USERS } from "../../utils/apis";
 import { getTimeAgo } from "../../utils/date-utils";
 import "./FingerPage.css";
 
@@ -12,7 +12,7 @@ const FingersPage = () => {
   const [data, setData] = useState<Finger[] | null>();
 
   useEffect(() => {
-    fetch(FINGERS_LIST_API)
+    fetch(REGISTERED_USERS)
       .then((response) => response.json())
       .then((responseJson: { data: Finger[] }) => {
         setData(responseJson.data);

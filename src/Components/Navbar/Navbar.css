@@ -47,7 +47,7 @@
 }
 
 .doorbell__navbar a:before {
-  background: var(--color-border);
+  background: var(--color-home);
 }
 
 .doorbell__navbar li a:hover:before {
