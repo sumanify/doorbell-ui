@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { FINGERS_LIST_API } from "../../utils/apis";
+import { getTimeAgo } from "../../utils/date-utils";
 import "./FingerPage.css";
 
 interface Finger {
@@ -10,10 +12,9 @@ const FingersPage = () => {
   const [data, setData] = useState<Finger[] | null>();
 
   useEffect(() => {
-    fetch("https://www.tietomato.com/dropouts/fingers.php")
+    fetch(FINGERS_LIST_API)
       .then((response) => response.json())
-      .then((responseJson: any) => {
-        console.log("data", responseJson);
+      .then((responseJson: { data: Finger[] }) => {
         setData(responseJson.data);
       })
       .catch((error) => {
@@ -21,23 +22,25 @@ const FingersPage = () => {
       });
   }, []);
 
-  if (!data?.length) return <p>Empty</p>;
+  if (!data?.length) return <p>Empty List</p>;
 
   return (
     <table>
       <thead>
         <tr>
+          <th>Time</th>
           <th>Print</th>
-          <th>Timestamp</th>
         </tr>
       </thead>
       <tbody>
-        {data.map((finger, index) => (
-          <tr key={index}>
-            <td>{finger.print}</td>
-            <td>{finger.timestamp}</td>
-          </tr>
-        ))}
+        {data
+          .sort((a, b) => b.timestamp.localeCompare(a.timestamp))
+          .map((finger, index) => (
+            <tr key={index}>
+              <td>{getTimeAgo(finger.timestamp)}</td>
+              <td>{finger.print}</td>
+            </tr>
+          ))}
       </tbody>
     </table>
   );
